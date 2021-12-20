@@ -24,6 +24,9 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
+//const { infuraProjectId, mnemonic, etherscanApiKey } = require('./secrets.json');
+//const HDWalletProvider = require('@truffle/hdwallet-provider');
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -40,6 +43,28 @@ module.exports = {
       host: "127.0.0.1",
       port: "7545",
       network_id: "*"
+    },
+    rinkeby: {
+      host: "localhost",
+      port: 8547,
+      network_id: 4,
+      gas: 4700000
+    },
+    ropsten: {
+      host: "localhost",
+      port: 8547,
+      network_id: 3,
+      gas: 4700000
+    },
+    live: {
+      host: "167.71.70.246",
+      port: "8547",
+      network_id: "1",
+      gas: 4500000,
+      gasPrice: 10000000000,
+      from: "0x3fb4b0def57fd5a0b3de53bc1311fb1f95d9fc24",
+      production: true,
+      websocket: true
     },
     //
     // Useful for testing. The `development` name is special - truffle uses it by default
@@ -99,7 +124,12 @@ module.exports = {
       // }
     }
   },
-
+  // plugins: [
+  //   'truffle-plugin-verify'
+  // ],
+  api_keys: {
+    etherscan: '84CISSXH4I2U7MUTVWKQGDF9I446JAMQP4'
+  },
   // Truffle DB is currently disabled by default; to enable it, change enabled: false to enabled: true
   //
   // Note: if you migrated your contracts prior to enabling this field in your Truffle project and want

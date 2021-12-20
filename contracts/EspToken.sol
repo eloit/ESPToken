@@ -25,11 +25,11 @@ contract EspToken is ERC20, Ownable {
 	uint256 immutable private finalSupply;
 
 	constructor(uint256 _initialSupply, uint256 _finalSupply ) ERC20("E$P Token", "E$P"){
-		_mint(msg.sender, _initialSupply);
+		_mint(msg.sender, _initialSupply * 10 ** 18);
 
-		require(_initialSupply >= _finalSupply, 'Inital Supply Must Be Equal Or Greater Than Final Supply');
+		require(_initialSupply * 10 ** 18 >= _finalSupply * 10 ** 18, 'Inital Supply Must Be Equal Or Greater Than Final Supply');
 
-		finalSupply = _finalSupply;
+		finalSupply = _finalSupply * 10 ** 18;
 
 		// Variables used to randomly select accounts to distrubute tax to
 
